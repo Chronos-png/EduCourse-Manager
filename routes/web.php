@@ -5,19 +5,20 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 // App routes
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [AppController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/courses', [AppController::class, 'courses'])->name('dashboard.courses');
     Route::post('/dashboard/courses', [AppController::class, 'courses'])->name('dashboard.courses');
+
+    Route::post('create-payment', [PaymentController::class, 'createPayment'])->name('create-payment');
+    Route::post('/save-transaction', [PaymentController::class, 'saveTransaction'])->name('save-transaction');
 });
 
 // Admin

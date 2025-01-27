@@ -1,9 +1,9 @@
 <x-app-layout>
-    <x-slot name="header">
+    {{-- <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Courses') }}
         </h2>
-    </x-slot>
+    </x-slot> --}}
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex flex-col gap-8 justify-center items-center">
@@ -27,11 +27,12 @@
                             </a>
                             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 min-h-20 max-h-20">
                                 {{ $course->deskripsi }}</p>
-                            <div class="flex justify-between items-center h-fit">
-                                <a href="#"
-                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            <div class="flex justify-between items-center mt-auto">
+                                <button
+                                    onclick="enrollnow('{{ $course->id_kursus }}', '{{ $course->nama_kursus }}', {{ $course->harga }})"
+                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 pay-button">
                                     Enroll Now
-                                </a>
+                                </button>
                                 <div class="flex items-center space-x-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-500">
@@ -56,3 +57,73 @@
         </div>
     </div>
 </x-app-layout>
+
+<script>
+    async function enrollnow(courseId, courseName, coursePrice) {
+        try {
+            const response = await fetch('{{ route('create-payment') }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                        'content'),
+                },
+                body: JSON.stringify({
+                    name: @json(Auth::user()->name),
+                    email: @json(Auth::user()->email),
+                    amount: coursePrice, // Dynamic course price
+                    course_id: courseId, // Dynamic course ID
+                    course_name: courseName, // Dynamic course name
+                }),
+            });
+
+            const data = await response.json();
+            if (data.snap_token) {
+                window.snap.pay(data.snap_token, {
+                    onSuccess: function(result) {
+                        // Kirim data ke server setelah pembayaran berhasil
+                        saveTransaction(result, courseId);
+                    },
+                    onError: function(result) {
+                        console.log("Payment error", result);
+                    },
+                    onPending: function(result) {
+                        console.log("Payment pending", result);
+                    }
+                });
+            } else {
+                console.log('Failed to get Snap token');
+            }
+
+        } catch (error) {
+            console.log('Error during payment creation:', error);
+        }
+    }
+
+    async function saveTransaction(result, courseId) {
+        try {
+            const response = await fetch('{{ route('save-transaction') }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                        'content'),
+                },
+                body: JSON.stringify({
+                    transaction_id: result.transaction_id,
+                    user_id: @json(Auth::user()->id),
+                    course_id: courseId,
+                    payment_status: result.transaction_status === 'settlement' ? 'paid' : 'unpaid',
+                }),
+            });
+            const data = await response.json();
+            if (data.success) {
+                console.log('Transaction successfully saved');
+            } else {
+                console.log('Failed to save transaction');
+            }
+        } catch (error) {
+            console.log('Error saving transaction:', error);
+        }
+    }
+</script>
