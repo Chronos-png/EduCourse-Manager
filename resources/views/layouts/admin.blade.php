@@ -23,6 +23,7 @@
             @include('layouts.admin.sidebar')
             <div id="main-content"
                 class="relative w-full h-full overflow-y-auto bg-gray-50 md:ml-64 sm:ml-64 dark:bg-gray-900 ml-0">
+                @include('components.alert-multiple-errors')
                 <!-- Page Content -->
                 <main>
                     {{ $slot }}

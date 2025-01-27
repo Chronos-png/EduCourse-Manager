@@ -7,9 +7,19 @@ use Illuminate\Http\Request;
 
 class AppController extends Controller
 {
-    public function courses()
+    public function courses(Request $request)
     {
-        $kursus = Kursus::all();
-        return view('dashboard.courses', ['courses' => $kursus]);
+        $search = $request->input('search');
+        $query = Kursus::query();
+
+        if ($search) {
+            $query->where('nama_kursus', 'like', '%' . $search . '%')
+                ->orWhere('deskripsi', 'like', '%' . $search . '%');
+        }
+
+        // Paginate the results
+        $kursus = $query->paginate(10);
+
+        return view('dashboard.courses', ['courses' => $kursus, 'search' => $search]);
     }
 }

@@ -30,7 +30,7 @@ class AdminController extends Controller
         if ($deletedCount) {
             return redirect()->route('admin.manage_courses')->with('success', 'Courses Deleted Successfully!');
         } else {
-            return redirect()->route('admin.manage_courses')->with('failed', 'Failed to Delete Courses!, Internal Error Has Occurred!');
+            return redirect()->route('admin.manage_courses')->with('error', 'Failed to Delete Courses!, Internal Error Has Occurred!');
         }
     }
 
