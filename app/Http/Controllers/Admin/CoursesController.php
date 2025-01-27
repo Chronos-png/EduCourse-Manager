@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Kursus;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
-class AdminController extends Controller
+class CoursesController extends Controller
 {
     public function manageCourses()
     {
-        $kursus = Kursus::all();
+        $kursus = Kursus::paginate(5);
         return view('dashboard.admin.manage_courses', ['courses' => $kursus]);
     }
 
