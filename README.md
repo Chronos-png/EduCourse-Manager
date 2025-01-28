@@ -44,7 +44,9 @@ Add this line to ensure your project allow cors to all domain (optional)
 ```
 CORS_ALLOW_ALL=true
 ```
+If you run this project locally, make sure you already have certificate for your openssl in your php (if you run php externally) or your apache !!
 
+Because this already happen to me before lol 😂 !!
 ### 4. Generate Key
 
 Enter on your project terminal:
@@ -76,7 +78,7 @@ npm install
 
 ## Run Project
 
-### 1. Run Tailwind Css
+### 1. Run Tailwind CSS
 
 Enter on your project terminal:
 
