@@ -129,9 +129,4 @@ class ExcelController extends Controller
             return back()->withErrors(['error' => $e->getMessage()]);
         }
     }
-
-    public function exportExcel()
-    {
-        //
-    }
 }
