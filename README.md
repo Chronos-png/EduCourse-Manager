@@ -28,10 +28,25 @@ Enter on your project terminal:
 composer install
 ```
 
-### 3. Add .env
+### 3. Add .env & Setting your .env 
 
 Change / Rename your ".env.example" file to  ".env"
 
+Add These line to your env, these are my midtrans api sandbox keys, feel free to use it, if you already have midtrans account you can change it !
+
+```
+MIDTRANS_SERVER_KEY=SB-Mid-server-z-fDsaYTSB1B_AjdjB7oLclV
+MIDTRANS_CLIENT_KEY=SB-Mid-client-QoLkKfG8R6-PsSVj
+MIDTRANS_IS_PRODUCTION=false
+```
+
+Add this line to ensure your project allow cors to all domain (optional)
+```
+CORS_ALLOW_ALL=true
+```
+If you run this project locally, make sure you already have certificate for your openssl in your php (if you run php externally) or your apache !!
+
+Because this already happen to me before lol 😂 !!
 ### 4. Generate Key
 
 Enter on your project terminal:
@@ -63,7 +78,7 @@ npm install
 
 ## Run Project
 
-### 1. Run Tailwind Css
+### 1. Run Tailwind CSS
 
 Enter on your project terminal:
 
@@ -97,7 +112,3 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
-## Support
-
-For support, email ychronos13@gmail.com or join our Slack channel.
-
