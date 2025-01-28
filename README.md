@@ -103,8 +103,8 @@ https://simulator.sandbox.midtrans.com/alfamart/index
 
 ### 4. Dashboard Access
 
-- Untuk Akses Dashboar milik Siswa, login akun menggunakan akun "Regular Users"
-- Untuk Akses Dashboar milik Admin, login akun menggunakan akun "Admin Users"
+- Untuk Akses Dashboard milik Siswa, login akun menggunakan akun "Regular Users"
+- Untuk Akses Dashboard milik Admin, login akun menggunakan akun "Admin Users"
 
 
 ## Account On This Project (Seeder)
