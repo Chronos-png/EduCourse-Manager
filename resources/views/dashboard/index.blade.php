@@ -1,15 +1,9 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('My Learning') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex flex-col gap-8 justify-center items-center">
+    <div class="py-12 relative">
+        <div class="relative h-full max-w-7xl mx-auto sm:px-6 lg:px-8 flex flex-col gap-8 justify-center items-center">
 
             <!-- Content -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative mb-[15rem]">
                 @foreach ($courses as $course)
                     <div
                         class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col">
@@ -34,13 +28,10 @@
                     </div>
                 @endforeach
             </div>
-
-
             <!-- Pagination Links -->
-            <div class="pagination w-full mt-20">
+            <div class="pagination w-full absolute bottom-[1rem]">
                 {{ $courses->links() }}
             </div>
-
         </div>
     </div>
 </x-app-layout>

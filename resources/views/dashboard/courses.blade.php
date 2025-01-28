@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="py-12 relative">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex flex-col gap-8 justify-center items-center">
+        <div class="relative max-w-7xl mx-auto sm:px-6 lg:px-8 flex flex-col gap-8 justify-center items-center">
 
             <div class="flex w-full gap-3">
 
@@ -14,17 +14,17 @@
             </div>
 
             <!-- Dropdown Filter Form -->
-            <div id="filterForm" class="hidden w-full relative h-0">
+            <div id="filterForm" class="hidden w-full relative h-0 z-20">
                 <form method="GET" action="{{ route('dashboard.courses') }}"
-                    class="flex gap-4 items-start w-full mx-auto flex-col p-5 absolute right-2 top-[-10px] bg-gray-100 border rounded shadow-sm">
+                    class="flex gap-4 items-start w-[20rem] mx-auto flex-col p-5 absolute right-2 top-[-10px] bg-gray-100 border rounded shadow-sm">
                     <!-- Price Range Filters -->
                     <input type="number" name="min_price" value="{{ request()->get('min_price') }}"
-                        placeholder="Min Price" class="px-4 py-2 rounded border" />
+                        placeholder="Min Price" class="px-4 py-2 rounded border w-full" />
                     <input type="number" name="max_price" value="{{ request()->get('max_price') }}"
-                        placeholder="Max Price" class="px-4 py-2 rounded border" />
+                        placeholder="Max Price" class="px-4 py-2 rounded border w-full" />
 
                     <!-- Sort By -->
-                    <select name="sort_by" class="px-4 py-2 rounded border">
+                    <select name="sort_by" class="px-4 py-2 rounded border w-full">
                         <option value="nama_kursus" {{ request()->get('sort_by') == 'nama_kursus' ? 'selected' : '' }}>
                             Sort by Name</option>
                         <option value="harga" {{ request()->get('sort_by') == 'harga' ? 'selected' : '' }}>Sort by
@@ -32,7 +32,7 @@
                     </select>
 
                     <!-- Sort Order -->
-                    <select name="sort_order" class="px-4 py-2 rounded border">
+                    <select name="sort_order" class="px-4 py-2 rounded border w-full">
                         <option value="asc" {{ request()->get('sort_order') == 'asc' ? 'selected' : '' }}>Ascending
                         </option>
                         <option value="desc" {{ request()->get('sort_order') == 'desc' ? 'selected' : '' }}>Descending
@@ -45,7 +45,7 @@
 
 
             <!-- Content -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 z-10 mb-[15rem]">
                 @foreach ($courses as $course)
                     <div
                         class="max-w-sm h-auto bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
@@ -107,7 +107,7 @@
             </div>
 
             <!-- Pagination Links -->
-            <div class="pagination w-full mt-20">
+            <div class="pagination w-full absolute bottom-[1rem]">
                 {{ $courses->links() }}
             </div>
 

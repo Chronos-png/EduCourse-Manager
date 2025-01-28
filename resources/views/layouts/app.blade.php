@@ -20,7 +20,7 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-white dark:bg-gray-900">
+    <div class="bg-[#fff] dark:bg-gray-900">
         @include('layouts.student-navigation')
 
         <!-- Page Content -->
@@ -31,5 +31,12 @@
     </div>
     @include('layouts.footer')
 </body>
+<script>
+    // document.documentElement.classList.toggle(
+    //     "dark",
+    //     localStorage.currentTheme === "dark" ||
+    //     (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+    // );
+</script>
 
 </html>
