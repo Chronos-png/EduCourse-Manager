@@ -92,6 +92,95 @@ Open new terminal and enter on your project new terminal:
 ```
 php artisan serve
 ```
+
+## Account On This Project (Seeder)
+
+### Regular Users:
+#### 1. Name: Adit Kurniawan
+
+- Username: ditt_adit
+- Email: adit@example.com
+- Password: adit123 (hashed)
+- Usertype: user
+
+#### 2. Name: Ilham Maulana
+
+- Username: ilham_maulana
+- Email: ilhamham@example.com
+- Password: namakuilham123 (hashed)
+- Usertype: user
+
+#### 3. Name: Toni Sukmawan
+
+- Username: sukmaton97
+- Email: sukmma@example.com
+- Password: hillenburg37 (hashed)
+- Usertype: user
+
+#### 4. Name: Siti Rahmawati
+
+- Username: rahma_siti
+- Email: rahmawatisiti@example.com
+- Password: sitirahma88 (hashed)
+- Usertype: user
+
+#### 5. Name: Andi Saputra
+
+- Username: andi_saputra
+- Email: andi@example.com
+- Password: andi123
+- Usertype: user
+
+#### 6. Name: Budi Prasetyo
+
+- Username: budi_prasetyo
+- Email: budi@example.com
+- Password: budiprasetyo456
+- Usertype: user
+
+#### 7. Name: Citra Dewi
+
+- Username: citra_dewi
+- Email: citra@example.com
+- Password: citra2025
+- Usertype: user
+
+#### 8. Name: Dewi Lestari
+
+- Username: dewi_lestari
+- Email: dewi@example.com
+- Password: dewiL123
+- Usertype: user
+
+#### 9. Name: Fajar Setiawan
+
+- Username: fajar_setiawan
+- Email: fajar@example.com
+- Password: fajar456
+- Usertype: user
+
+#### 10. Name: User EduCourse
+
+- Username: user
+- Email: user@example.com
+- Password: user123 (hashed)
+- Usertype: user
+
+### Admin Users:
+#### 1. Name: Rosalinda Putri
+
+- Username: linrosa97
+- Email: linrosa_rosalinda@example.com
+- Password: adminpassword (hashed)
+- Usertype: admin
+
+#### 2. Name: Admin EduCourse
+
+- Username: admin
+- Email: admin@example.com
+- Password: admin123 (hashed)
+- Usertype: admin
+
 ## Authors
 
 - [@Ahmad Ar-rosyid Hidayatullah](https://www.github.com/Chronos-png)
