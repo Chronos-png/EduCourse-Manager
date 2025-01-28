@@ -1,3 +1,26 @@
+# Onban App - Laravel Project
+
+This is a Laravel project. The following instructions will guide you through the process of setting it up from cloning the repository to running the app with Tailwind CSS.
+
+## Requirements
+
+- PHP 8.2 or higher
+- Composer
+- Node.js and npm (for Tailwind CSS)
+
+## Installation
+
+Follow the steps below to set up the project:
+
+### 1. Clone the Repository
+
+Clone the project repository to your local machine:
+
+```bash
+git clone https://github.com/ham-zettt/onban_app.git
+cd onban_app
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
