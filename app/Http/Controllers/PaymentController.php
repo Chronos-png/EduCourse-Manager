@@ -76,12 +76,22 @@ class PaymentController extends Controller
                 'payment_status' => 'required|in:paid,unpaid',
             ]);
 
+            $transaksiExist = TransaksiPendaftaran::where('id_kursus', $request->course_id)->first();
+
+            $jumlahSiswa = 1;
+
+            if ($transaksiExist) {
+                // Increment
+                $jumlahSiswa = $transaksiExist->jumlah_siswa_yang_terdaftar + 1;
+            }
+
             // Menyimpan data transaksi ke dalam tabel
             $transaksi = TransaksiPendaftaran::create([
                 'id_transaksi_pendaftaran' => Str::uuid(),
                 'id_users' => $request->user_id,
                 'id_kursus' => $request->course_id,
                 'payment_status' => $request->payment_status,
+                'jumlah_siswa_yang_terdaftar' => +1,
                 'tgl_pendaftaran' => now(),
             ]);
 

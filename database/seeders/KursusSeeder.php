@@ -18,7 +18,7 @@ class KursusSeeder extends Seeder
             'deskripsi' => 'Belajar Laravel dari dasar hingga mahir.',
             'harga' => 1000000,
             'status_kursus' => 'active',
-            'jumlah_siswa_yang_terdaftar' => 10,
+            'jumlah_siswa_yang_terdaftar' => 0,
             'tgl_dibuat' => now(),
         ]);
 
@@ -28,7 +28,7 @@ class KursusSeeder extends Seeder
             'deskripsi' => 'Pelajari bahasa pemrograman Python untuk berbagai keperluan.',
             'harga' => 800000,
             'status_kursus' => 'active',
-            'jumlah_siswa_yang_terdaftar' => 5,
+            'jumlah_siswa_yang_terdaftar' => 0,
             'tgl_dibuat' => now(),
         ]);
 
@@ -38,7 +38,7 @@ class KursusSeeder extends Seeder
             'deskripsi' => 'Membangun website dari frontend hingga backend.',
             'harga' => 1500000,
             'status_kursus' => 'active',
-            'jumlah_siswa_yang_terdaftar' => 12,
+            'jumlah_siswa_yang_terdaftar' => 0,
             'tgl_dibuat' => now(),
         ]);
 
@@ -48,7 +48,7 @@ class KursusSeeder extends Seeder
             'deskripsi' => 'Menggunakan data untuk mengambil keputusan bisnis.',
             'harga' => 2000000,
             'status_kursus' => 'inactive',
-            'jumlah_siswa_yang_terdaftar' => 3,
+            'jumlah_siswa_yang_terdaftar' => 0,
             'tgl_dibuat' => now(),
         ]);
 
@@ -58,7 +58,7 @@ class KursusSeeder extends Seeder
             'deskripsi' => 'Belajar desain grafis menggunakan Adobe Photoshop.',
             'harga' => 1200000,
             'status_kursus' => 'active',
-            'jumlah_siswa_yang_terdaftar' => 8,
+            'jumlah_siswa_yang_terdaftar' => 0,
             'tgl_dibuat' => now(),
         ]);
     }
