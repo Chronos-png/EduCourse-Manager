@@ -101,7 +101,12 @@ Untuk melakukan nya copy payment code dan paste di link berikut
 
 https://simulator.sandbox.midtrans.com/alfamart/index
 
-### 4. Dashboard Access
+### 4. Import Excel
+
+Untuk import Excel anda dapat menggunakan template file excel "Template Import Kursus.xlsx" yang ada di "./EduCourse-Manager".
+
+
+### 5. Dashboard Access
 
 - Untuk Akses Dashboard milik Siswa, login akun menggunakan akun "Regular Users"
 - Untuk Akses Dashboard milik Admin, login akun menggunakan akun "Admin Users"
