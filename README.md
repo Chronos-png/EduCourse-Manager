@@ -124,7 +124,42 @@ php artisan serve
 - Password: sitirahma88 (hashed)
 - Usertype: user
 
-#### 5. Name: User EduCourse
+#### 5. Name: Andi Saputra
+
+- Username: andi_saputra
+- Email: andi@example.com
+- Password: andi123
+- Usertype: user
+
+#### 6. Name: Budi Prasetyo
+
+- Username: budi_prasetyo
+- Email: budi@example.com
+- Password: budiprasetyo456
+- Usertype: user
+
+#### 7. Name: Citra Dewi
+
+- Username: citra_dewi
+- Email: citra@example.com
+- Password: citra2025
+- Usertype: user
+
+#### 8. Name: Dewi Lestari
+
+- Username: dewi_lestari
+- Email: dewi@example.com
+- Password: dewiL123
+- Usertype: user
+
+#### 9. Name: Fajar Setiawan
+
+- Username: fajar_setiawan
+- Email: fajar@example.com
+- Password: fajar456
+- Usertype: user
+
+#### 10. Name: User EduCourse
 
 - Username: user
 - Email: user@example.com
