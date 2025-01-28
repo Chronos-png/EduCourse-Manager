@@ -40,7 +40,7 @@ Route::middleware(['auth', 'role-check'])->group(function () {
     Route::get('/admin/import-courses', [ExcelController::class, 'importCourses'])->name('admin.import_courses');
     Route::post('/admin/import-courses', [ExcelController::class, 'importCourses'])->name('admin.import_courses');
     Route::post('/admin/excel-store-courses', [ExcelController::class, 'storeCourses'])->name('admin.store_courses');
-    Route::get('/admin/export-courses', [ExcelController::class, 'exportCourses'])->name('admin.export_courses');
+    Route::get('/admin/export-courses', [ExcelController::class, 'exportExcel'])->name('admin.export_courses');
 });
 
 // Profile routes

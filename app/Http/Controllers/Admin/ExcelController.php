@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class ExcelController extends Controller
 {
@@ -128,5 +130,56 @@ class ExcelController extends Controller
             // Catch any errors and return the message
             return back()->withErrors(['error' => $e->getMessage()]);
         }
+    }
+
+    public function exportExcel()
+    {
+        // Fetch all kursus data
+        $kursus = Kursus::all();
+
+        // Create a new Spreadsheet object
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        // Set the header row
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Nama Kursus');
+        $sheet->setCellValue('C1', 'Deskripsi');
+        $sheet->setCellValue('D1', 'Harga');
+        $sheet->setCellValue('E1', 'Status Kursus');
+        $sheet->setCellValue('F1', 'Jumlah Siswa Terdaftar');
+        $sheet->setCellValue('G1', 'Tanggal Dibuat');
+
+        // Fill the sheet with kursus data
+        $row = 2;
+        $number_count = 0;
+        foreach ($kursus as $k) {
+            $number_count++;
+            $sheet->setCellValue('A' . $row, $number_count);
+            $sheet->setCellValue('B' . $row, $k->nama_kursus);
+            $sheet->setCellValue('C' . $row, $k->deskripsi);
+            $sheet->setCellValue('D' . $row, $k->harga);
+            $sheet->setCellValue('E' . $row, $k->status_kursus);
+            $sheet->setCellValue('F' . $row, $k->jumlah_siswa_yang_terdaftar);
+            $sheet->setCellValue('G' . $row, $k->tgl_dibuat);
+            $row++;
+        }
+
+        // Create a writer to save the file
+        $writer = new Xlsx($spreadsheet);
+
+        // Set the filename and download it
+        $fileName = 'kursus.xlsx';
+        return response()->stream(
+            function () use ($writer) {
+                $writer->save('php://output');
+            },
+            200,
+            [
+                'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                'Content-Disposition' => 'attachment;filename="' . $fileName . '"',
+                'Cache-Control' => 'max-age=0',
+            ]
+        );
     }
 }
