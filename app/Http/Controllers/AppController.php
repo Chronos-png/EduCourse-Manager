@@ -22,17 +22,45 @@ class AppController extends Controller
     }
     public function courses(Request $request)
     {
+        // Ambil nilai dari request
         $search = $request->input('search');
+        $minPrice = $request->input('min_price');
+        $maxPrice = $request->input('max_price');
+        $sortBy = $request->input('sort_by', 'nama_kursus'); // Defaultnya sort by 'nama_kursus'
+        $sortOrder = $request->input('sort_order', 'asc'); // Defaultnya urutkan secara ascending
+
         $query = Kursus::query();
 
+        // Filter berdasarkan nama kursus atau deskripsi
         if ($search) {
             $query->where('nama_kursus', 'like', '%' . $search . '%')
                 ->orWhere('deskripsi', 'like', '%' . $search . '%');
         }
 
-        // Paginate the results
+        // Filter berdasarkan rentang harga jika ada
+        if ($minPrice) {
+            $query->where('harga', '>=', $minPrice);
+        }
+
+        if ($maxPrice) {
+            $query->where('harga', '<=', $maxPrice);
+        }
+
+        // Urutkan berdasarkan 'sort_by' dan 'sort_order'
+        if (in_array($sortBy, ['nama_kursus', 'harga'])) {
+            $query->orderBy($sortBy, $sortOrder);
+        }
+
+        // Paginate hasil pencarian dan filter
         $kursus = $query->paginate(10);
 
-        return view('dashboard.courses', ['courses' => $kursus, 'search' => $search]);
+        return view('dashboard.courses', [
+            'courses' => $kursus,
+            'search' => $search,
+            'minPrice' => $minPrice,
+            'maxPrice' => $maxPrice,
+            'sortBy' => $sortBy,
+            'sortOrder' => $sortOrder
+        ]);
     }
 }
