@@ -59,7 +59,6 @@ Enter on your project terminal:
 
 ```
 npm install
-
 ```
 
 ## Run Project
@@ -78,8 +77,14 @@ Open new terminal and enter on your project new terminal:
 ```
 php artisan serve
 ```
+## Authors
+
+- [@Ahmad Ar-rosyid Hidayatullah](https://www.github.com/Chronos-png)
+
 
 ## About Laravel
+
+![Logo](https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg)
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
@@ -92,3 +97,7 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Support
+
+For support, email ychronos13@gmail.com or join our Slack channel.
+
