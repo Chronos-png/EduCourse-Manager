@@ -93,6 +93,25 @@ Open new terminal and enter on your project new terminal:
 php artisan serve
 ```
 
+### 3. Pembayaran ( Fitur )
+
+Pada fitur pembayaran, proyek ini menggunakan sanbox midtrans. Untuk saat ini pembayaran yang valid adalah dari via "Alfamart".
+
+Untuk melakukan nya copy payment code dan paste di link berikut
+
+https://simulator.sandbox.midtrans.com/alfamart/index
+
+### 4. Import Excel
+
+Untuk import Excel anda dapat menggunakan template file excel "Template Import Kursus.xlsx" yang ada di "./EduCourse-Manager".
+
+
+### 5. Dashboard Access
+
+- Untuk Akses Dashboard milik Siswa, login akun menggunakan akun "Regular Users"
+- Untuk Akses Dashboard milik Admin, login akun menggunakan akun "Admin Users"
+
+
 ## Account On This Project (Seeder)
 
 ### Regular Users:
