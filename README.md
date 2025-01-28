@@ -18,7 +18,6 @@ Clone the project repository to your local machine:
 
 ```
 git clone https://github.com/Chronos-png/EduCourse-Manager.git
-
 ```
 
 ### 2. Install Composer
@@ -27,7 +26,6 @@ Enter on your project terminal:
 
 ```
 composer install
-
 ```
 
 ### 3. Add .env
@@ -40,7 +38,6 @@ Enter on your project terminal:
 
 ```
 php artisan key:generate
-
 ```
 
 ### 5. Migrate Database with Seeder
@@ -49,13 +46,11 @@ Enter on your project terminal:
 
 ```
 php artisan migrate --seed
-
 ```
 If you don't want to migrate with seeder:
 
 ```
 php artisan migrate
-
 ```
 
 ### 6. Install All Node Package
