@@ -240,7 +240,8 @@
                         <div class="absolute bottom-0 left-0 flex justify-center w-full mb-4 gap-4">
                             <a href="#" class="bg-primary text-white px-3 py-1 rounded-full bg-blue-500">Read
                                 More</a>
-                            <a href="#" class="bg-primary text-white px-3 py-1 rounded-full bg-blue-500">Join
+                            <a href="{{ route('dashboard.courses') }}"
+                                class="bg-primary text-white px-3 py-1 rounded-full bg-blue-500">Join
                                 Now</a>
                         </div>
                     </div>
