@@ -8,10 +8,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PDFController;
 use App\Http\Controllers\Admin\ExcelController;
 use App\Http\Controllers\Admin\CoursesController;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // App routes
 Route::middleware(['auth', 'verified'])->group(function () {
